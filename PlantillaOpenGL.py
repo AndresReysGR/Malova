@@ -3,387 +3,227 @@ from glew_wish import *
 import glfw
 from math import *
 
+rotacion = 0.0
+
 #cpara calcular color (Numero del colorRGB)/255*1
 #Grados a radiales 1° × π/180
-#---------------------------CASA--------------------------
-def dibujarNube3():
-    glColor3f(1,1,1)
-    glBegin(GL_POLYGON)
-    for x in range(360): 
-        angulo = x * 3.14159 / 180.0
-        #mismo numero salen igual, diferente, diferente proporcion
-        #Agregar resta (Angulo/coseno) hace que la figura baje
-        #Agregar suma (Angulo/coseno) hace que la figura suba
-        glVertex3f(cos(angulo) * 0.15 + 0.5 , sin(angulo) * 0.05 + 0.8, 0.0)
-    glEnd()
 
-def dibujarNube2():
-    glColor3f(1,1,1)
-    glBegin(GL_POLYGON)
-    for x in range(360): 
-        angulo = x * 3.14159 / 180.0
-        #mismo numero salen igual, diferente, diferente proporcion
-        #Agregar resta (Angulo/coseno) hace que la figura baje
-        #Agregar suma (Angulo/coseno) hace que la figura suba
-        glVertex3f(cos(angulo) * 0.15 - 0.3 , sin(angulo) * 0.05 + 0.8, 0.0)
-    glEnd()
+#---------------------------Anillo--------------------------
 
-def dibujarNube1():
-    glColor3f(1,1,1)
-    glBegin(GL_POLYGON)
-    for x in range(360): 
-        angulo = x * 3.14159 / 180.0
-        #mismo numero salen igual, diferente, diferente proporcion
-        #Agregar resta (Angulo/coseno) hace que la figura baje
-        #Agregar suma (Angulo/coseno) hace que la figura suba
-        glVertex3f(cos(angulo) * 0.15 + 0.125 , sin(angulo) * 0.05 + 0.7, 0.0)
-    glEnd()
-
-def dibujarHojasdeArbol5():
-    glColor3f(0.133,0.741,0.223)
-    glBegin(GL_POLYGON)
-    for x in range(360): 
-        angulo = x * 3.14159 / 180.0
-        #mismo numero salen igual, diferente, diferente proporcion
-        #Agregar resta (Angulo/coseno) hace que la figura baje
-        #Agregar suma (Angulo/coseno) hace que la figura suba
-        glVertex3f(cos(angulo) * 0.2 + 0.9, sin(angulo) * 0.2 - 0.1, 0.0)
-    glEnd()
-
-def dibujarHojasdeArbol4():
-    glColor3f(0.133,0.741,0.223)
-    glBegin(GL_POLYGON)
-    for x in range(360): 
-        angulo = x * 3.14159 / 180.0
-        #mismo numero salen igual, diferente, diferente proporcion
-        #Agregar resta (Angulo/coseno) hace que la figura baje
-        #Agregar suma (Angulo/coseno) hace que la figura suba
-        glVertex3f(cos(angulo) * 0.2 + 0.85, sin(angulo) * 0.2 + 0.2, 0.0)
-    glEnd()
-
-def dibujarHojasdeArbol3():
-    glColor3f(0.133,0.741,0.223)
-    glBegin(GL_POLYGON)
-    for x in range(360): 
-        angulo = x * 3.14159 / 180.0
-        #mismo numero salen igual, diferente, diferente proporcion
-        #Agregar resta (Angulo/coseno) hace que la figura baje
-        #Agregar suma (Angulo/coseno) hace que la figura suba
-        glVertex3f(cos(angulo) * 0.2 + 0.75, sin(angulo) * 0.2 + 0.25, 0.0)
-    glEnd()
-
-def dibujarHojasdeArbol2():
-    glColor3f(0.133,0.741,0.223)
-    glBegin(GL_POLYGON)
-    for x in range(360): 
-        angulo = x * 3.14159 / 180.0
-        #mismo numero salen igual, diferente, diferente proporcion
-        #Agregar resta (Angulo/coseno) hace que la figura baje
-        #Agregar suma (Angulo/coseno) hace que la figura suba
-        glVertex3f(cos(angulo) * 0.2 + 0.65, sin(angulo) * 0.2 + 0.2, 0.0)
-    glEnd()
-
-def dibujarHojasdeArbol1():
-    glColor3f(0.133,0.741,0.223)
-    glBegin(GL_POLYGON)
-    for x in range(360): 
-        angulo = x * 3.14159 / 180.0
-        #mismo numero salen igual, diferente, diferente proporcion
-        #Agregar resta (Angulo/coseno) hace que la figura baje
-        #Agregar suma (Angulo/coseno) hace que la figura suba
-        glVertex3f(cos(angulo) * 0.2 + 0.6, sin(angulo) * 0.2 - 0.1, 0.0)
-    glEnd()
-
-def dibujarOyodelArbol():
-    glColor3f(0.549,0.321,0.003)
-    glBegin(GL_POLYGON)
-    for x in range(360): 
-        angulo = x * 3.14159 / 180.0
-        #mismo numero salen igual, diferente, diferente proporcion
-        #Agregar resta (Angulo/coseno) hace que la figura baje
-        #Agregar suma (Angulo/coseno) hace que la figura suba
-        glVertex3f(cos(angulo) * 0.05 + 0.77, sin(angulo) * 0.05 - 0.4, 0.0)
-    glEnd()
-
-def dibujarBasedelArbol():
-    glColor3f(0.741, 0.509, 0.184)
+#orillasBase
+def dibujarOrillaBase():
+    glColor3f(0.564, 0.047, 0.247)
     glBegin(GL_QUADS)
-    glVertex(0.85,-0.1,0.0)
-    glVertex(0.7,-0.1,0.0)
-    glVertex(0.7,-0.75,0.0)
-    glVertex(0.85,-0.75,0.0)
+    glVertex(-0.66,-0.82,0.0)
+    glVertex(0.66,-0.82,0.0)
+    glVertex(0.67,-0.84,0.0)
+    glVertex(-0.67,-0.84,0.0)
     glEnd()
 
-def dibujarTecho(): 
- #rutinas de dibujo
+def dibujarOrillaBaseDerecha():
+    glColor3f(0.564, 0.047, 0.247)
+    glBegin(GL_QUADS)
+    glVertex(0.48,-0.1,0.0)
+    glVertex(0.49,-0.1,0.0)
+    glVertex(0.68,-0.84,0.0)
+    glVertex(0.665,-0.82,0.0)
+    glEnd()
+
+def dibujarOrillaBaseIzquierda():
+    glColor3f(0.564, 0.047, 0.247)
+    glBegin(GL_QUADS)
+    glVertex(-0.48,-0.1,0.0)
+    glVertex(-0.49,-0.1,0.0)
+    glVertex(-0.68,-0.84,0.0)
+    glVertex(-0.665,-0.82,0.0)
+    glEnd()
+
+#orilasArriba
+def dibujarOrillaArriba():
+    glColor3f(0.564, 0.047, 0.247)
+    glBegin(GL_QUADS)
+    glVertex(-0.66,0.62,0.0)
+    glVertex(0.66,0.62,0.0)
+    glVertex(0.67,0.64,0.0)
+    glVertex(-0.67,0.64,0.0)
+    glEnd()
+
+def dibujarOrillaArribaDerecha():
+    glColor3f(0.564, 0.047, 0.247)
+    glBegin(GL_QUADS)
+    glVertex(0.48,-0.1,0.0)
+    glVertex(0.49,-0.1,0.0)
+    glVertex(0.68,0.635,0.0)
+    glVertex(0.665,0.615,0.0)
+    glEnd()
+
+def dibujarOrillaArribaIzquierda():
+    glColor3f(0.564, 0.047, 0.247)
+    glBegin(GL_QUADS)
+    glVertex(-0.48,-0.1,0.0)
+    glVertex(-0.49,-0.1,0.0)
+    glVertex(-0.68,0.635,0.0)
+    glVertex(-0.665,0.615,0.0)
+    glEnd()
+
+
+#Bases
+def dibujarBaseAnillo():
+    glColor3f(0, 0, 0)
+    glBegin(GL_QUADS)
+    glVertex(-0.5,-0.1,0.0)
+    glVertex(0.5,-0.1,0.0)
+    glVertex(0.69,-0.85,0.0)
+    glVertex(-0.69,-0.85,0.0)
+    glEnd()
+
+def dibujarparteAlta():
+    glColor3f(0, 0, 0)
+    glBegin(GL_QUADS)
+    glVertex(-0.5,-0.1,0.0)
+    glVertex(0.5,-0.1,0.0)
+    glVertex(0.69,0.65,0.0)
+    glVertex(-0.69,0.65,0.0)
+    glEnd()
+
+#Cascara
+def dibujarparteAltaCascara():
+    glColor3f(0.564, 0.047, 0.247)
+    glBegin(GL_QUADS)
+    glVertex(-0.5,0.9,0.0)
+    glVertex(0.5,0.9,0.0)
+    glVertex(0.69,0.65,0.0)
+    glVertex(-0.69,0.65,0.0)
+    glEnd()
+
+def dibujarBaseAnilloCascara():
+    glColor3f(0.564, 0.047, 0.247)
+    glBegin(GL_QUADS)
+    glVertex(-0.5,-0.9,0.0)
+    glVertex(0.5,-0.9,0.0)
+    glVertex(0.69,-0.85,0.0)
+    glVertex(-0.69,-0.85,0.0)
+    glEnd()
+
+#Agarre
+def dibujarBaseAnilloAgarre():
+    glColor3f(1,0.478,0.698)
+    glBegin(GL_QUADS)
+    glVertex(-0.25,-0.1,0.0)
+    glVertex(0.25,-0.1,0.0)
+    glVertex(0.3,-0.15,0.0)
+    glVertex(-0.3,-0.15,0.0)
+    glEnd()
+
+def dibujarparteAltaAgarre():
+    glColor3f(1,0.478,0.698)
+    glBegin(GL_QUADS)
+    glVertex(-0.25,-0.1,0.0)
+    glVertex(0.25,-0.1,0.0)
+    glVertex(0.3,0.05,0.0)
+    glVertex(-0.3,0.05,0.0)
+    glEnd()
+
+#Forma de Anillo
+
+def dibujarAnilloAbajo():
+    glColor3f(0.980,0.831,0)
+    glBegin(GL_POLYGON)
+    for x in range(360): 
+        angulo = x * 3.14159 / 180.0
+        #mismo numero salen igual, diferente, diferente proporcion
+        #Agregar resta (Angulo/coseno) hace que la figura baje
+        #Agregar suma (Angulo/coseno) hace que la figura suba
+        glVertex3f(cos(angulo) * 0.15 - 0.01 , sin(angulo) * 0.15 - 0.4, 0.0)
+    glEnd()
+
+def dibujarAnilloArriba():
+    glColor3f(0,0,0)
+    glBegin(GL_POLYGON)
+    for x in range(360): 
+        angulo = x * 3.14159 / 180.0
+        #mismo numero salen igual, diferente, diferente proporcion
+        #Agregar resta (Angulo/coseno) hace que la figura baje
+        #Agregar suma (Angulo/coseno) hace que la figura suba
+        glVertex3f(cos(angulo) * 0.13 - 0.01 , sin(angulo) * 0.1 - 0.4, 0.0)
+    glEnd()
+
+def dibujarTaparAnillo():
+    glColor3f(0, 0, 0)
+    glBegin(GL_QUADS)
+    glVertex(-0.5,-0.38,0.0)
+    glVertex(0.5,-0.38,0.0)
+    glVertex(0.69,-0.85,0.0)
+    glVertex(-0.69,-0.85,0.0)
+    glEnd()
+
+#Diamante
+    #Triangulo1
+def dibujarDiamante1(): 
     glBegin(GL_TRIANGLES)
-    glColor3f(0.549,0.321,0.003)
-    glVertex3f(-0.6,0.3,0.0)
-    glVertex3f(0.0,0.7,0.0)
-    glVertex3f(0.6,0.3,0.0)
+    glColor3f(0.0,0.933,1.0)
+    glVertex3f(-0.01,-0.4,0.0)
+    glColor3f(0.0,0.968,1.0)
+    glVertex3f(0.08,-0.25,0.0)
+    glColor3f(0.0,1.0,0.933)
+    glVertex3f(-0.1,-0.25,0.0)
+    glEnd()    
+
+    #Triangulo2
+
+def dibujarDiamante2():
+    glBegin(GL_POLYGON)
+    glVertex(-0.1,-0.17,0.0)
+    glVertex(-0.12,-0.24,0.0)
+    glVertex(0.1,-0.24,0.0)
+    glVertex(0.08,-0.17,0.0)
     glEnd()
 
-def dibujarVentana1():
-    glColor3f(0.0,0.764,1.0)
-    glBegin(GL_QUADS)
-    glVertex(0.12,0.07,0.0)
-    glVertex(0.23,0.07,0.0)
-    glVertex(0.23,-0.09,0.0)
-    glVertex(0.12,-0.09,0.0)
-    glEnd()
-
-
-def dibujarVentana4():
-    glColor3f(0.0,0.764,1.0)
-    glBegin(GL_QUADS)
-    glVertex(0.27,-0.12,0.0)
-    glVertex(0.38,-0.12,0.0)
-    glVertex(0.38,-0.28,0.0)
-    glVertex(0.27,-0.28,0.0)
-    glEnd()
-
-
-def dibujarVentana3():
-    glColor3f(0.0,0.764,1.0)
-    glBegin(GL_QUADS)
-    glVertex(0.12,-0.12,0.0)
-    glVertex(0.23,-0.12,0.0)
-    glVertex(0.23,-0.28,0.0)
-    glVertex(0.12,-0.28,0.0)
-    glEnd()
-
-
-def dibujarVentana2():
-    glColor3f(0.0,0.764,1.0)
-    glBegin(GL_QUADS)
-    glVertex(0.27,0.07,0.0)
-    glVertex(0.38,0.07,0.0)
-    glVertex(0.38,-0.09,0.0)
-    glVertex(0.27,-0.09,0.0)
-    glEnd()
-
-def dibujarBaseVentana():
-    glColor3f(0.549,0.321,0.003)
-    glBegin(GL_QUADS)
-    glVertex(0.1,0.1,0.0)
-    glVertex(0.401,0.1,0.0)
-    glVertex(0.401,-0.3,0.0)
-    glVertex(0.1,-0.3,0.0)
-    glEnd()
-
-def dibujarPuerta():
-    glColor3f(0.949, 0.552, 0.0)
-    glBegin(GL_QUADS)
-    glVertex(-0.3,-0.2,0.0)
-    glVertex(-0.0,-0.2,0.0)
-    glVertex(-0.0,-0.6,0.0)
-    glVertex(-0.3,-0.6,0.0)
-    glEnd()
-
-def dibujarCasaBase():
-    glColor3f(1, 0.0, 0.0)
-    glBegin(GL_QUADS)
-    glVertex(-0.5,0.3,0.0)
-    glVertex(0.5,0.3,0.0)
-    glVertex(0.5,-0.6,0.0)
-    glVertex(-0.5,-0.6,0.0)
-    glEnd()
+#Brillo
+def dibujarBrillo(): 
+    glPushMatrix()
+    glTranslatef(0.4,0,0)
+    glRotatef(rotacion,0,0,1)
     
-
-def dibujarPasto():
-    glColor3f(0.427, 0.819, 0.321)
-    glBegin(GL_QUADS)
-    glVertex(-1.0,-0.4,0.0)
-    glVertex(1.0,-0.4,0.0)
-    glVertex(1.0,-1.0,0.0)
-    glVertex(-1.0,-1.0,0.0)
-    glEnd()
-
-def dibujarSol():
-    glColor3f(0.949,0.874,0.047)
-    glBegin(GL_POLYGON)
-    for x in range(360): 
-        angulo = x * 3.14159 / 180.0
-        #mismo numero salen igual, diferente, diferente proporcion
-        #Agregar resta (Angulo/coseno) hace que la figura baje
-        #Agregar suma (Angulo/coseno) hace que la figura suba
-        glVertex3f(cos(angulo) * 0.2 - 0.7 , sin(angulo) * 0.2 + 0.7, 0.0)
-    glEnd()
-
-def dibujarRallos1():
     glBegin(GL_TRIANGLES)
-    glColor3f(0.949,0.874,0.047)
-    glVertex3f(-0.95,0.7,0.0)
-    glVertex3f(-0.7,0.95,0.0)
-    glVertex3f(-0.45,0.7,0.0)
+    glColor3f(0.980,0.831,0)
+    glVertex3f(-0.485,-0.25,0)
+    #glColor3f(1.0,0.0,0.0)
+    glVertex3f(-0.5,-0.19,0)
+    #glColor3f(0.0,0.0,1.0)
+    glVertex3f(-0.46,-0.15,0)
     glEnd()
+    glPopMatrix()
 
-def dibujarRallos2():
-    glBegin(GL_TRIANGLES)
-    glColor3f(0.949,0.874,0.047)
-    glVertex3f(-0.82,0.9,0.0)
-    glVertex3f(-0.52,0.85,0.0)
-    glVertex3f(-0.55,0.5,0.0)
-    glEnd()
-
-def dibujarRallos3():
-    glBegin(GL_TRIANGLES)
-    glColor3f(0.949,0.874,0.047)
-    glVertex3f(-0.95,0.7,0.0)
-    glVertex3f(-0.7,0.45,0.0)
-    glVertex3f(-0.45,0.7,0.0)
-    glEnd()
-
-def dibujarRallos4():
-    glBegin(GL_TRIANGLES)
-    glColor3f(0.949,0.874,0.047)
-    glVertex3f(-0.82,0.9,0.0)
-    glVertex3f(-0.9,0.55,0.0)
-    glVertex3f(-0.55,0.5,0.0)
-    glEnd()
-
-def dibujarPerilla():
-    glColor3f(0.549,0.321,0.003)
-    glBegin(GL_POLYGON)
-    for x in range(360): 
-        angulo = x * 3.14159 / 180.0
-        #mismo numero salen igual, diferente, diferente proporcion
-        #Agregar resta (Angulo/coseno) hace que la figura baje
-        #Agregar suma (Angulo/coseno) hace que la figura suba
-        glVertex3f(cos(angulo) * 0.02 - 0.04 , sin(angulo) * 0.02 - 0.4, 0.0)
-    glEnd()
-
-def dibujarBanqueta():
-    glColor3f(0.435, 0.450, 0.439)
-    glBegin(GL_QUADS)
-    glVertex(-0.5,-0.6,0.0)
-    glVertex(0.5,-0.6,0.0)
-    glVertex(1.0,-1.0,0.0)
-    glVertex(-1.0,-1.0,0.0)
-    glEnd()
 
 def dibujar():
-    dibujarPasto()
-    dibujarSol()
-    dibujarCasaBase()
-    dibujarNube1()
-    dibujarNube2()
-    dibujarNube3()
-    dibujarTecho()
-    dibujarPuerta()
-    dibujarPerilla()
-    dibujarBaseVentana()
-    dibujarVentana1()
-    dibujarVentana2()
-    dibujarVentana3()
-    dibujarVentana4()
-    dibujarBanqueta()
-    dibujarBasedelArbol()
-    dibujarOyodelArbol()
-    dibujarHojasdeArbol1()
-    dibujarHojasdeArbol2()
-    dibujarHojasdeArbol3()
-    dibujarHojasdeArbol4()
-    dibujarHojasdeArbol5()
-    dibujarRallos1()
-    dibujarRallos2()
-    dibujarRallos3()
-    dibujarRallos4()
+    dibujarBaseAnillo()
+    dibujarparteAlta()
+    dibujarparteAltaAgarre()
+    dibujarBaseAnilloAgarre()
+    dibujarparteAltaCascara()
+    dibujarBaseAnilloCascara()
+    dibujarAnilloAbajo()
+    dibujarAnilloArriba()
+    dibujarTaparAnillo()
+    dibujarOrillaBase()
+    dibujarOrillaBaseDerecha()
+    dibujarOrillaBaseIzquierda()
+    dibujarOrillaArriba()
+    dibujarOrillaArribaDerecha()
+    dibujarOrillaArribaIzquierda()
+    dibujarDiamante1()
+    dibujarDiamante2()
+    dibujarBrillo()
+   
     
 
-#----------------------------CASA------------------------
-
-def dibujarTriangulos(): 
- #rutinas de dibujo
-    glBegin(GL_TRIANGLES)
-    glColor3f(1.0,0,0,)
-    glVertex3f(-0.5,0.0,0.0)
-    #glColor3f(1.0,0.8,0,)
-    glVertex3f(0.0,0.5,0.0)
-    #glColor3f(1.0,0.0,1.0,)
-    glVertex3f(0.5,0.0,0.0)
-
-    glColor3f(0.0,0,1.0)
-    glVertex3f(-0.4,-0.2,0.0)
-    glColor3f(0.0,1.0,0.0)
-    glVertex3f(-0.6,-0.4,0.0)
-    glColor3f(1.0,0.0,0.0)
-    glVertex3f(-0.2,-0.4,0.0)
-    glEnd()
-
-def dibujarPuntos():    
-    glBegin(GL_POINTS)
-    glVertex3f(0.0,0.0,0.0)
-    glEnd()
-
-def dibujarLineas():
-    glBegin(GL_LINES)
-    glVertex3f(-0.8,0.5,0.0)
-    glVertex3f(-0.8,0.3,0.0)
-
-    glVertex3f(-0.6,0.5,0.0)
-    glVertex3f(-0.5,0.3,0.0)
-    glEnd()
-
-def dibujarLineasContinua():
-    glBegin(GL_LINE_STRIP)
-    glVertex3f(-0.8,0.5,0.0)
-    glVertex3f(-0.8,0.3,0.0)
-
-    glVertex3f(-0.6,0.5,0.0)
-    glVertex3f(-0.5,0.3,0.0)
-
-    glVertex3f(-0.3,0.5,0.0)
-    glEnd()
-
-def dibujarCicloLinea():
-    glBegin(GL_LINE_LOOP)
-    glVertex3f(-0.8,0.5,0.0)
-    glVertex3f(-0.8,0.3,0.0)
-
-    glVertex3f(-0.6,0.5,0.0)
-    glVertex3f(-0.5,0.3,0.0)
-
-    glVertex3f(-0.3,0.5,0.0)
-    glEnd()
-
-def dibujarRectangulos():
-    glBegin(GL_QUADS)
-    glVertex3f(-0.2,0.2,0.0)
-    glVertex3f(0.4,0.2,0.0)
-    glVertex3f(0.4,-0.2,0.0)
-    glVertex3f(-0.2,-0.2,0.0)
-    glEnd()
-
-def dibujarPoligono():
-    glBegin(GL_POLYGON)
-    #glVertex3f(-0.8,0.5,0.0)
-    #glVertex3f(-0.8,0.3,0.0)
-    #glVertex3f(-0.6,0.5,0.0)
-    #glVertex3f(-0.5,0.3,0.0)
-    #glVertex3f(-0.3,0.5,0.0)
-
-    glVertex(0.0,0.0,0.0)
-    glVertex(0.0,0.2,0.0)
-    glVertex(0.2,0.2,0.0)
-    glVertex(0.2,0.0,0.0)
-    glEnd()
-
-
-#def dibujar():
- #   glColor3f(1.0,0.0,0.0)
-    #dibujarTriangulos()
-    #dibujarPuntos()
-    #dibujarLineas()
-    #dibujarLineasContinua()
-    #dibujarCicloLinea()
-    #dibujarRectangulos()
-    #dibujarPoligono()
+#----------------------------Anillo------------------------
 
 def main():
     #inicia glfw
-    ancho = 800
-    alto = 800
+    ancho = 1920
+    alto = 1080
     if not glfw.init():
         return
     
@@ -423,9 +263,9 @@ def main():
 
     while not glfw.window_should_close(window):
         #Establece regiond e dibujo
-        glViewport(0,0,800,800)
+        glViewport(0,0,1920,1080)
         #Establece color de borrado
-        glClearColor(0.0,0.764,1.0,0)
+        glClearColor(1,0.478,0.698,0)
         #Borra el contenido de la ventana
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
